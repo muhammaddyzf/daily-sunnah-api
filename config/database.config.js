@@ -1,3 +1,6 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
 module.exports = {
-  DB: 'mongodb://192.168.99.100:8383/db_daily_sunnah'
+  DB: `mongodb://${process.env.MONGODB_HOST}/${process.env.MONGODB_DB}`
 }

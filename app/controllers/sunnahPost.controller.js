@@ -10,8 +10,10 @@ exports.create = (req, resp) => {
 
   sunnahPost.save().then(data => {
     resp.status(200).send({
-      data: data,
-      message: "Successfully added to database"
+      success: true,
+      message: "Successfully added to database",
+      response_code: 200,
+      data: data
     });
   }).catch(err => {
     resp.status(500).send({

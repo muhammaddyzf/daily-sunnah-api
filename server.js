@@ -1,10 +1,13 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const PORT = 4000;
 const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require('./config/database.config');
+const dotenv = require('dotenv');
+dotenv.config();
+
+const PORT = process.env.NODE_PORT;
 
 // Add x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,6 +33,9 @@ app.get('/', (req, resp) => {
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+
+console.log(PORT);
 
 app.listen(PORT, function () {
   console.log('Server is running on Port:', PORT);
